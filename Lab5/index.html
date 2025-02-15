@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Página Personal - Jorge Armando Garzón Varela</title>
+    <!-- Foundation CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites/dist/css/foundation.min.css">
+</head>
+<body>
+    <header class="grid-x grid-padding-x align-center-middle text-center">
+        <h1 class="cell">Jorge Armando Garzón Varela</h1>
+        <nav class="cell">
+            <ul class="menu align-center">
+                <li><a href="#sobre-mi" style="color: white;">Sobre Mí</a></li>
+                <li><a href="#proyectos" style="color: white;">Proyectos</a></li>
+                <li><a href="#preguntas" style="color: white;">Preguntas</a></li>
+                <li><a href="#contacto" style="color: white;">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid-container">
+        <section id="sobre-mi" class="grid-x grid-padding-x">
+            <div class="cell medium-8 medium-offset-2">
+                <h2>Sobre Mí</h2>
+                <p>Hola, mi nombre es Jorge Garzón. Soy un estudiante de ITC en el Tecnológico de Monterrey y me encanta trabajar en proyectos innovadores. Además de la experiencia adquirida en semestres previos, he participado en etapas locales de programación competitiva y he desarrollado proyectos simples de desarrollo web de manera personal. Me apasiona la tecnología y la resolución de problemas a través de la programación, siempre buscando mejorar mis habilidades y aprender nuevas tecnologías.</p>
+                <p>Desde pequeño he practicado fútbol, participando y ganando varios torneos nacionales, principalmente de fútbol 7. Durante la preparatoria y los primeros semestres de profesional formé parte del equipo representativo de mi institución. Actualmente no formo parte del equipo, pero planeo regresar el próximo semestre para seguir compitiendo y disfrutando del deporte que tanto me gusta.</p>
+                <p>En mi tiempo libre, disfruto escuchar música y asistir a conciertos, lo que me permite conectar con diferentes géneros y artistas. También me gusta pasar tiempo con mis amigos y viajar con mi familia, explorando nuevos lugares y viviendo experiencias memorables. Además, soy fanático de las series y películas, por lo que frecuentemente voy al cine para disfrutar de los últimos estrenos.</p>
+            </div>
+        </section>
+
+        <section id="proyectos" class="grid-x grid-padding-x">
+            <div class="cell medium-8 medium-offset-2">
+                <h2>Proyectos</h2>
+                <article class="callout">
+                    <h3>Simulación computacional de la dielectroforesis</h3>
+                    <p><strong>Descripción:</strong> El proyecto consistió en investigar la malaria y los métodos para su detección, centrándose en la dielectroforesis como técnica. Se desarrolló una simulación en MATLAB para modelar este proceso, orientado a la detección temprana de la enfermedad en muestras de sangre.</p>
+                </article>
+                <article class="callout">
+                    <h3>Odisea de los Héroes</h3>
+                    <p><strong>Descripción:</strong> Desarrollo de un juego de rol (RPG) en C++ que permite a los jugadores crear y controlar personajes de dos clases: guerreros y magos, así como enfrentarse en batallas estratégicas.</p>
+                </article>
+                <article class="callout">
+                    <h3>Análisis de Datos en la Premier League</h3>
+                    <p><strong>Descripción:</strong> El proyecto consistió en analizar datos de las últimas 10 temporadas de la Premier League mediante técnicas de regresión en Python para predecir el rendimiento futuro de los equipos.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto" class="grid-x grid-padding-x">
+            <div class="cell medium-8 medium-offset-2">
+                <h2>Contacto</h2>
+                <p><strong> Nombre:</strong> Jorge Armando Garzón Varela</p>
+                <p><strong> Matrícula:</strong> A01707102</p>
+                <p><strong> Correo:</strong> A01707102@tec.mx</p>
+                <h3>Envíame un mensaje:</h3>
+                <form action="#" method="post">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" class="input-group-field" required>
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" class="input-group-field" required>
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" class="input-group-field" required></textarea>
+                    <button type="submit" class="button">Enviar</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="grid-x grid-padding-x align-center-middle text-center">
+        <p class="cell">Editor utilizado: <strong>VS Code</strong></p>
+        <p class="cell">Enlace: <a href="https://code.visualstudio.com/" style="color: white;">https://code.visualstudio.com/</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/foundation-sites/dist/js/foundation.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(document).foundation();
+        });
+    </script>
+</body>
+</html>
