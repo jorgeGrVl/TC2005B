@@ -1,3 +1,4 @@
+// Función Calcular Promedio
 const calcularPromedio = (arreglo) => {
     let suma = 0;
     for (let item of arreglo) {
@@ -6,19 +7,15 @@ const calcularPromedio = (arreglo) => {
     return suma / arreglo.length;
 };
 
-let arreglo = [1, 2, 3, 4, 5];;
-console.log(calcularPromedio(arreglo));
 
-
+// Función Escribir en Archivo
 const escribirEnArchivo = (str) => {
     const file_s = require('fs');
     file_s.writeFileSync('prueba.txt', str);
 }
 
-let str = 'Hola';
-escribirEnArchivo(str);
 
-
+// Función Two Sum
 const twoSum = (arreglo, target) => {
     let l = 0;
     let r = arreglo.length - 1;
@@ -34,9 +31,16 @@ const twoSum = (arreglo, target) => {
     return [l, r];
 };
 
+
+// Llamada a Funciones 
+let arreglo = [1, 2, 3, 4, 5];;
+let str = 'Hola';
+console.log(calcularPromedio(arreglo));
+escribirEnArchivo(str);
 console.log(twoSum(arreglo, 8));
 
 
+// Pequeña Aplicación Web
 const http = require('http');
 
 const html = `
