@@ -6,7 +6,7 @@ const calcularPromedio = (arreglo) => {
     return suma / arreglo.length;
 };
 
-const arreglo = [1, 2, 3, 4, 5];
+let arreglo = [1, 2, 3, 4, 5];
 console.log(calcularPromedio(arreglo))
 
 
@@ -17,3 +17,21 @@ const escribirEnArchivo = (str) => {
 
 let str = 'Hola'
 escribirEnArchivo(str);
+
+
+const twoSum = (arreglo, target) => {
+    let l = 0;
+    let r = arreglo.length - 1;
+    while (arreglo[l] + arreglo[r] != target) {
+        if (l == r - 1) {
+            l += 1;
+            r = arreglo.length - 1;
+        }
+        else {
+            r -= 1;
+        }
+    }
+    return [l, r];
+};
+
+console.log(twoSum(arreglo, 8));
