@@ -1,4 +1,34 @@
 const visitantes = [];
+const fs = require('fs');
+
+const escribirEnArchivo = (str) => {
+    fs.open("./visitantes.txt", 'a', (err, fd) => {
+        if (err) { 
+            console.log(err); 
+        }
+        else {       
+            fs.appendFile(fd, str + "\n", function (err) {
+                if (err) throw err;
+                fs.close(fd, function (err) {
+                    if (err) throw err;
+                });
+            });
+        }
+    });
+}
+
+const leerArchivo = () => {
+    fs.readFile('visitantes.txt', 'utf-8', (err, data) => { 
+        if (err) {
+            console.log(err);
+            return;
+        }
+        visitantes.length = 0;  
+        visitantes.push(...data.split('\n').map(item => item.trim()).filter(item => item !== ''));
+    });
+}
+
+leerArchivo();
 
 const html_header = `
 <!DOCTYPE html>
@@ -134,6 +164,7 @@ const server = http.createServer((request, response) => {
             const datos_completos = Buffer.concat(datos).toString();
             console.log(datos_completos);
             visitantes.push(datos_completos.split('=')[1]);
+            escribirEnArchivo(datos_completos.split('=')[1]);
             response.setHeader('Content-Type', 'text/html');
             response.write(html_header + "<h2>Visitantes de la Página</h2><br>");
             response.write('<div class="columns">');
