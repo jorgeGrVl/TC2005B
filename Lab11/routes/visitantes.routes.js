@@ -8,7 +8,7 @@ const html_header = `
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lab 10</title>
+    <title>Lab 11: Express</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
   </head>
   <body>
@@ -105,6 +105,36 @@ let html_card_footer = `
 `;
 
 const visitantes = [];
+const fs = require('fs');
+
+const escribirEnArchivo = (str) => {
+    fs.open("./routes/visitantes.txt", 'a', (err, fd) => {
+        if (err) { 
+            console.log(err); 
+        }
+        else {       
+            fs.appendFile(fd, str + "\n", function (err) {
+                if (err) throw err;
+                fs.close(fd, function (err) {
+                    if (err) throw err;
+                });
+            });
+        }
+    });
+}
+
+const leerArchivo = () => {
+    fs.readFile('./routes/visitantes.txt', 'utf-8', (err, data) => { 
+        if (err) {
+            console.log(err);
+            return;
+        }
+        visitantes.length = 0;  
+        visitantes.push(...data.split('\n').map(item => item.trim()).filter(item => item !== ''));
+    });
+}
+
+leerArchivo();
 
 router.get('/registrar', (request, response, next) => {
     response.send(html_header + html_content_form);
@@ -113,7 +143,12 @@ router.get('/registrar', (request, response, next) => {
 router.post('/registrar', (request, response, next) => {
     console.log(request.body);
     visitantes.push(request.body.nombre);
+    escribirEnArchivo(request.body.nombre)
     console.log(visitantes);
+    response.send(html_header + html_content_form);
+});
+
+router.get('/consultar', (request, response, next) => {
     let html = html_header;
     for (let visitante of visitantes) {
         html += html_card_header;

@@ -9,16 +9,18 @@ app.use((request, response, next) => {
     next();
 });
 
-app.use('/chewy', (request, response, next) => {
-    response.send("Hola desde la ruta /chewy");
+app.use('/main', (request, response, next) => {
+    response.send("Hola desde la ruta principal");
 });
 
 const rutasVisitantes = require('./routes/visitantes.routes');
 app.use('/visitantes', rutasVisitantes);
 
+const rutasLaboratorios = require('./routes/laboratorios.routes');
+app.use('/laboratorios', rutasLaboratorios);
+
 app.use((request, response, next) => {
-    console.log('Otro middleware!');
-    response.send('¡Hola mundo!'); 
+    response.status(404).send('Página No Encontrada')
 });
 
 app.listen(3000);
