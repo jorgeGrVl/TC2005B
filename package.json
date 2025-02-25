@@ -1,0 +1,22 @@
+{
+  "name": "tc2005b",
+  "version": "1.0.0",
+  "description": "TC2005B Labs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgeGrVl/TC2005B.git"
+  },
+  "keywords": [
+    "TC2005B"
+  ],
+  "author": "Jorge Garzón",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorgeGrVl/TC2005B/issues"
+  },
+  "homepage": "https://github.com/jorgeGrVl/TC2005B#readme"
+}
