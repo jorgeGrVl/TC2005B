@@ -1,0 +1,11 @@
+<%- include('includes/_header.ejs') %>
+
+<% for (let visitante of visitantes) { %>
+    <div class="card">
+        <div class="card-content">
+            <p class="title">
+            <%= visitante %>
+            </p>
+        </div>
+    </div>
+<% } %>
