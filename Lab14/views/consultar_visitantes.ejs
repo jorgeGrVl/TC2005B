@@ -1,0 +1,15 @@
+<%- include('includes/_header.ejs') %>
+
+<% for (let visitante of visitantes) { %>
+    <div class="card">
+        <div class="card-content">
+            <p class="title">
+            <%= visitante.nombre %>
+            </p>
+        </div>
+    </div>
+<% } %>
+
+<a class="button is-primary" href="/visitantes/registrar">
+    Registrar Visitante
+</a>
