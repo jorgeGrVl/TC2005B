@@ -1,0 +1,28 @@
+<%- include('includes/_header.ejs') %>
+
+<% if(info != '') { %>
+    <div class="notification is-info">
+        <%= info %>
+    </div>
+<% } %>
+
+<div class="columns">
+<% for (let visitante of visitantes) { %>
+    <div class="column">
+        <div class="card">
+            <div class="card-content">
+                <p class="title">
+                    <a href="/visitantes/consultar/<%= visitante.id %>"><%= visitante.nombre %></a>
+                </p>
+                <%= visitante.visited_at %>
+            </div>
+        </div>
+    </div>
+<% } %>
+</div>
+
+<br><br>
+
+<a class="button is-primary" href="/visitantes/registrar">
+    Registrar visitante
+</a>
