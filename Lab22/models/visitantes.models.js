@@ -4,12 +4,13 @@ const visitantes = [];
 
 module.exports = class Visitante {
 
-    constructor(mi_nombre) {
+    constructor(mi_nombre, mi_imagen) {
         this.nombre = mi_nombre;
+        this.imagen = mi_imagen;
     }
 
     save() {
-        return db.execute('INSERT INTO visitantes(nombre) VALUES (?)', [this.nombre]);
+        return db.execute('INSERT INTO visitantes(nombre, imagen) VALUES (?, ?)', [this.nombre, this.imagen]);
     }
 
     static fetchAll() {

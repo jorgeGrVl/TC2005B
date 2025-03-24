@@ -7,25 +7,55 @@
 <% } %>
 
 <div class="columns">
+<% let i = 0; %>
 <% for (let visitante of visitantes) { %>
+    <% if (i % 3 === 0) { %>
+        </div>
+        <div class="columns">
+    <% } %>
+    <% i++; %>
     <div class="column">
         <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img
+                        src="/uploads/<%= visitante.imagen %>"
+                        alt="Foto de <%= visitante.nombre %>"
+                    />
+                </figure>
+            </div>
             <div class="card-content">
-                <p class="title">
-                    <a href="/visitantes/consultar/<%= visitante.id %>"><%= visitante.nombre %></a>
-                </p>
-                <%= visitante.visited_at %>
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img
+                            src="/uploads/<%= visitante.imagen %>"
+                            alt="Foto de <%= visitante.nombre %>"
+                            />
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">
+                            <a href="/visitantes/consultar/<%= visitante.id %>"><%= visitante.nombre %></a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="content">
+                    <%= visitante.created_at %>
+                </div>
             </div>
         </div>
     </div>
 <% } %>
+</div>
 </div>
 
 <br><br>
 
 <% for(let privilegio of privilegios) { %> 
     <% if(privilegio.nombre == "registrar visitantes") { %>
-        <a class="button is-primary" href="/personajes/agregar">
+        <a class="button is-primary" href="/visitantes/registrar">
             Registrar Visitantes
         </a>
     <% } %>

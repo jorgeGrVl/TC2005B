@@ -17,6 +17,17 @@ app.use(session({
     saveUninitialized: false,
 }));
 
+const multer = require('multer');
+const fileStorage = multer.diskStorage({
+    destination: (request, file, callback) => {
+        callback(null, 'public/uploads');
+    },
+    filename: (request, file, callback) => {
+        callback(null, new Date().getMilliseconds + file.originalname);
+    },
+});
+app.use(multer({ storage: fileStorage }).single('archivo')); 
+
 const csrf = require('csurf');
 const csrfProtection = csrf();
 app.use(csrfProtection); 

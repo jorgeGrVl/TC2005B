@@ -10,7 +10,8 @@ exports.get_registrar = (request, response, next) => {
 
 exports.post_registrar = (request, response, next) => {
     console.log(request.body);
-    const visitante = new Visitante(request.body.nombre);
+    console.log(request.file);
+    const visitante = new Visitante(request.body.nombre, request.file.filename);
     visitante.save()
         .then(() => {
             request.session.info = `Visitante ${visitante.nombre} registrado`;

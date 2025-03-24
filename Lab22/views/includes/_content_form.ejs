@@ -1,9 +1,17 @@
 <div class="columns">
     <div class="column">
-        <form action="/visitantes/registrar" method="POST">
+        <form action="/visitantes/registrar" method="POST" enctype="multipart/form-data">
             <input type="hidden" name="_csrf" value="<%= csrfToken %>" >
             <label for="nombre" class="label">Escribe tu nombre:</label>
             <input class="input is-primary" type="text" placeholder="Jorge" id="nombre" name="nombre"/>
+            <br><br>
+            <label for="archivo" class="label">Imagen</label>
+            <input 
+              type="file" 
+              id="archivo" 
+              name="archivo" 
+              accept=".png, .jpg, .jpeg, .gif"
+              class="input is-primary">
             <br><br>
             <input type="submit" id="boton_personaje" class="button is-primary" value="Guardar">
         </form>
