@@ -1,0 +1,36 @@
+{
+  "name": "tc2005b",
+  "version": "1.0.0",
+  "description": "TC2005B Labs",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jorgeGrVl/TC2005B.git"
+  },
+  "keywords": [
+    "TC2005B"
+  ],
+  "author": "Jorge Garzón",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jorgeGrVl/TC2005B/issues"
+  },
+  "homepage": "https://github.com/jorgeGrVl/TC2005B#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "body-parser": "^1.20.3",
+    "csurf": "^1.10.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "multer": "^1.4.5-lts.2",
+    "mysql2": "^3.13.0"
+  }
+}
