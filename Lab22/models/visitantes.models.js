@@ -10,7 +10,8 @@ module.exports = class Visitante {
     }
 
     save() {
-        return db.execute('INSERT INTO visitantes(nombre, imagen) VALUES (?, ?)', [this.nombre, this.imagen]);
+        return db.execute('INSERT INTO visitantes(nombre, imagen) VALUES (?, ?)', 
+            [this.nombre, this.imagen]);
     }
 
     static fetchAll() {
