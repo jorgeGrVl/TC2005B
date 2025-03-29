@@ -6,57 +6,6 @@
     </div>
 <% } %>
 
-<label class="label" for="buscar">Buscar</label>
-<input id="buscar" name="buscar" class="input is-info" type="text" placeholder="Chewbacca">
-<br><br>
-
-<div class="columns">
-<% let i = 0; %>
-<% for (let visitante of visitantes) { %>
-    <% if (i % 3 === 0) { %>
-        </div>
-        <div class="columns">
-    <% } %>
-    <% i++; %>
-    <div class="column">
-        <div class="card">
-            <div class="card-image">
-                <figure class="image is-4by3">
-                    <img
-                        src="/uploads/<%= visitante.imagen %>"
-                        alt="Foto de <%= visitante.nombre %>"
-                    />
-                </figure>
-            </div>
-            <div class="card-content">
-                <div class="media">
-                    <div class="media-left">
-                        <figure class="image is-48x48">
-                            <img
-                            src="/uploads/<%= visitante.imagen %>"
-                            alt="Foto de <%= visitante.nombre %>"
-                            />
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <p class="title is-4">
-                            <a href="/visitantes/consultar/<%= visitante.id %>"><%= visitante.nombre %></a>
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="content">
-                    <%= visitante.created_at %>
-                </div>
-            </div>
-        </div>
-    </div>
-<% } %>
-</div>
-</div>
-
-<br><br>
-
 <% for(let privilegio of privilegios) { %> 
     <% if(privilegio.nombre == "registrar visitantes") { %>
         <a class="button is-primary" href="/visitantes/registrar">
@@ -64,6 +13,59 @@
         </a>
     <% } %>
 <% } %>
+
+<br><br>
+
+<label class="label" for="buscar">Buscar</label>
+<input id="buscar" name="buscar" class="input is-info" type="text" placeholder="Chewbacca">
+
+<br><br>
+
+<div id="container-tarjetas">
+    <div class="columns">
+    <% let i = 0; %>
+    <% for (let visitante of visitantes) { %>
+        <% if (i % 3 === 0) { %>
+            </div>
+            <div class="columns">
+        <% } %>
+        <% i++; %>
+        <div class="column">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-4by3">
+                        <img
+                            src="/uploads/<%= visitante.imagen %>"
+                            alt="Foto de <%= visitante.nombre %>"
+                        />
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <div class="media">
+                        <div class="media-left">
+                            <figure class="image is-48x48">
+                                <img
+                                src="/uploads/<%= visitante.imagen %>"
+                                alt="Foto de <%= visitante.nombre %>"
+                                />
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <p class="title is-4">
+                                <a href="/visitantes/consultar/<%= visitante.id %>"><%= visitante.nombre %></a>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="content">
+                        <%= visitante.visited_at %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <% } %>
+    </div>
+</div>
 
 <script>
     const btn_buscar = document.getElementById('buscar');
@@ -74,7 +76,58 @@
         }).then((result) => {
             return result.json();
         }).then((data) => {
-            console.log(data);
+            
+            let html_container = '<div class="columns">';
+            let i = 0;
+
+            for (let visitante of data.visitantes) {
+                
+                if (i % 3 === 0) {
+                    html_container += `</div>
+                        <div class="columns">`;
+                }
+
+                i++
+                html_container += `<div class="column">
+                        <div class="card">
+                            <div class="card-image">
+                                <figure class="image is-4by3">
+                                    <img
+                                        src="/uploads/${visitante.imagen}"
+                                        alt="Foto de ${visitante.nombre}"
+                                    />
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <figure class="image is-48x48">
+                                            <img
+                                            src="/uploads/${visitante.imagen}"
+                                            alt="Foto de ${visitante.nombre}"
+                                            />
+                                        </figure>
+                                    </div>
+                                    <div class="media-content">
+                                        <p class="title is-4">
+                                            <a href="/visitantes/consultar/${visitante.id}">${visitante.nombre}</a>
+                                        </p>
+                                    </div>
+                                </div>
+                                
+                                <div class="content">
+                                    ${visitante.visited_at}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                }
+                html_container += `</div>`;
+
+                let tarjetas = document.getElementById('container-tarjetas');
+                tarjetas.innerHTML = html_container;
+
         }).catch((error) => {
             console.log(error);
         })

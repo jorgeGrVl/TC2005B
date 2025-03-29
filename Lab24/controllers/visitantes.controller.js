@@ -25,8 +25,7 @@ exports.post_registrar = (request, response, next) => {
 exports.get_buscar = (request, response, next) => {
     console.log(request.params.valor);
     Visitante.find(request.params.valor).then(([rows, fieldData]) => {
-        console.log(rows);
-        response.status(200).json({personajes: rows});
+        response.status(200).json({visitantes: rows});
     }).catch((error) => {
         response.status(500).json({message: "Internal Server Error"});
     })
