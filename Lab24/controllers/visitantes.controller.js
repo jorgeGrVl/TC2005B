@@ -22,6 +22,10 @@ exports.post_registrar = (request, response, next) => {
         });
 };
 
+exports.get_buscar = (request, response, next) => {
+    response.status(200).json({message: "Respuesta asíncrona"});
+};
+
 exports.get_lista = (request, response, next) =>{
     console.log(request.get('Cookie'));
     const mensaje = request.session.info || '';
