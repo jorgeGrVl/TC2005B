@@ -23,7 +23,13 @@ exports.post_registrar = (request, response, next) => {
 };
 
 exports.get_buscar = (request, response, next) => {
-    response.status(200).json({message: "Respuesta asíncrona"});
+    console.log(request.params.valor);
+    Visitante.find(request.params.valor).then(([rows, fieldData]) => {
+        console.log(rows);
+        response.status(200).json({personajes: rows});
+    }).catch((error) => {
+        response.status(500).json({message: "Internal Server Error"});
+    })
 };
 
 exports.get_lista = (request, response, next) =>{

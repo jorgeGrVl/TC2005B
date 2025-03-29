@@ -8,7 +8,7 @@ const visitantes_controller = require('../controllers/visitantes.controller');
 router.get('/registrar', isAuth, canRegistrarVisitantes, visitantes_controller.get_registrar);
 router.post('/registrar', isAuth, canRegistrarVisitantes, visitantes_controller.post_registrar);
 
-router.get('/buscar/:id', isAuth, canVerVisitantes, visitantes_controller.get_buscar);
+router.get('/buscar/:valor', isAuth, canVerVisitantes, visitantes_controller.get_buscar);
 router.get('/buscar/', isAuth, canVerVisitantes, visitantes_controller.get_buscar);
 
 router.get('/consultar', isAuth, canVerVisitantes, visitantes_controller.get_lista);

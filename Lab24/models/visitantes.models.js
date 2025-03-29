@@ -30,4 +30,11 @@ module.exports = class Visitante {
         }
     }
 
+    static find(valor){
+        if (valor) {
+            return db.execute('SELECT * FROM visitantes WHERE nombre LIKE ?', ['%' + valor + '%'])
+        } else {
+            return this.fetchAll();
+        }
+    }
 } 
