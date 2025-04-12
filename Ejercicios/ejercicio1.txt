@@ -1,0 +1,31 @@
+========== EJERCICIO NORMALIZACIÓN ==========
+
+Producción (Código de parte, Descripción de parte, Fecha,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 1 Turno 3,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 2 Turno 3,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 1,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 2,
+No. de operador, nombre del operador y cantidad producida en Línea 3 Turno 3)
+
+===== 1FN =====
+Producción(CódigoParte, DescripciónParte, Fecha, NoOperador, NombreOperador, Línea, Turno, Cantidad)
+
+
+===== 2FN =====
+Producción(CódigoParte, DescripciónParte, Fecha, NoOperador, Nombre, Línea, Turno, Cantidad)
+  PK(NoOperador, CódigoParte, Fecha, Línea, Turno)
+
+
+===== 3FN =====
+Operador(NoOperador, Nombre)
+  PK(NoOperador)
+
+Parte(CódigoParte, DescripciónParte)
+  PK(CódigoParte)
+
+Producción(NoOperador, CódigoParte, Fecha, Línea, Turno, Cantidad)
+  PK(NoOperador, CódigoParte, Fecha, Línea, Turno)
